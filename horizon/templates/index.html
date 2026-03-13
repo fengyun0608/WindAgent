@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindAgent - 风云智能体</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=5">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">🌀</div>
+                <div class="logo-text">
+                    <h1>WindAgent</h1>
+                    <p>风云智能体 v0.1.0</p>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">主要功能</div>
+                <div class="nav-item active" data-page="chat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span>智能对话</span>
+                </div>
+                <div class="nav-item" data-page="plugins">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    <span>插件管理</span>
+                    <span class="nav-badge" id="pluginCount">0</span>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title">系统设置</div>
+                <div class="nav-item" data-page="persona">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span>人设配置</span>
+                </div>
+                <div class="nav-item" data-page="config">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <span>AI 配置</span>
+                </div>
+                <div class="nav-item" data-page="platforms">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <span>平台接入</span>
+                </div>
+                <div class="nav-item" data-page="usage">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <span>使用统计</span>
+                </div>
+                <div class="nav-item" data-page="env">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <span>环境信息</span>
+                </div>
+                <div class="nav-item" data-page="system">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <span>系统管理</span>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="connection-status" id="connectionStatus">
+                <span class="connection-dot"></span>
+                <span>实时连接</span>
+            </div>
+            <div class="guardian-toggle" id="guardianToggle" onclick="toggleGuardian()">
+                <span class="icon">🛡️</span>
+                <span class="text">开启守护</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="topbar">
+            <div class="topbar-left">
+                <div>
+                    <div class="topbar-title" id="pageTitle">智能对话</div>
+                    <div class="topbar-subtitle" id="pageSubtitle">与 AI 智能体进行对话交流</div>
+                </div>
+            </div>
+            <div class="topbar-actions">
+                <div class="status-badge">
+                    <span class="status-dot" id="apiStatusDot"></span>
+                    <span id="apiStatusText">API: 未配置</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- 对话页面 -->
+            <div class="page active" id="page-chat">
+                <div class="chat-container">
+                    <div class="chat-sidebar">
+                        <div class="chat-sidebar-header">
+                            <div class="session-header" onclick="toggleSessionList()">
+                                <span>💬 会话列表</span>
+                                <svg id="sessionArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;transition:transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </div>
+                        </div>
+                        <div class="session-list" id="sessionList">
+                            <div class="session-item default-session" id="webSession" onclick="switchToWebSession()">
+                                <span class="session-icon">🌐</span>
+                                <span class="session-name">网页会话</span>
+                            </div>
+                        </div>
+                        <div style="padding:12px;border-top:1px solid var(--border-color);">
+                            <button class="btn btn-secondary" style="width:100%;" onclick="clearCurrentConversation()">清空当前对话</button>
+                        </div>
+                    </div>
+                    <div class="chat-main">
+                        <div class="chat-header">
+                            <div class="chat-header-info">
+                                <div class="chat-header-title" id="chatTitle">网页会话</div>
+                                <div class="chat-header-status" id="chatStatus">等待输入...</div>
+                            </div>
+                        </div>
+                        <div class="chat-messages" id="chatMessages"></div>
+                        <div class="chat-input-area">
+                            <input type="text" class="chat-input" id="chatInput" placeholder="输入消息或命令..." onkeypress="handleKeyPress(event)">
+                            <button class="btn btn-primary" onclick="sendMessage()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                发送
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 插件页面 -->
+            <div class="page" id="page-plugins">
+                <div class="page-header">
+                    <h2 class="page-title">插件管理</h2>
+                    <p class="page-desc">管理已安装的插件，支持在线编辑和热更新。</p>
+                </div>
+                <div class="card" style="margin-bottom: 24px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white;">
+                    <div class="card-body" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3 style="margin: 0 0 8px 0; color: white;">插件开发文档</h3>
+                            <p style="margin: 0; opacity: 0.9;">学习如何开发自定义插件，扩展 AI 能力</p>
+                        </div>
+                        <button class="btn" style="background: white; color: var(--primary);" onclick="window.open('/help/plugin_dev', '_blank')">查看文档</button>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom: 24px;">
+                    <div class="card-header">
+                        <h3>插件操作</h3>
+                        <button class="btn btn-primary" onclick="showInstallModal()">安装插件</button>
+                    </div>
+                </div>
+                <div class="plugin-grid" id="pluginList"></div>
+            </div>
+            
+            <!-- 人设配置页面 -->
+            <div class="page" id="page-persona">
+                <div class="page-header">
+                    <h2 class="page-title">🎭 人设配置</h2>
+                    <p class="page-desc">自定义 AI 智能体的性格和说话风格。</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>基本人设</h3></div>
+                    <div class="card-body">
+                        <div class="config-section">
+                            <div class="config-item"><label class="config-label">名称</label><input type="text" class="config-input" id="personaName" placeholder="风云智能体"></div>
+                            <div class="config-item"><label class="config-label">描述</label><input type="text" class="config-input" id="personaDesc" placeholder="一个友好、专业的AI助手"></div>
+                            <div class="config-item"><label class="config-label">性格特点</label><input type="text" class="config-input" id="personaPersonality" placeholder="温和、耐心、乐于助人"></div>
+                            <div class="config-item"><label class="config-label">说话风格</label><input type="text" class="config-input" id="personaStyle" placeholder="简洁明了"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>自定义提示词</h3></div>
+                    <div class="card-body">
+                        <div class="config-section">
+                            <div class="config-item" style="flex-direction: column; align-items: stretch;">
+                                <label class="config-label" style="margin-bottom: 12px;">高级自定义</label>
+                                <textarea class="config-textarea" id="personaCustom" placeholder="输入自定义的系统提示词..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="savePersona()">保存人设</button>
+            </div>
+            
+            <!-- AI配置页面 -->
+            <div class="page" id="page-config">
+                <div class="page-header">
+                    <h2 class="page-title">AI 配置</h2>
+                    <p class="page-desc">配置 AI 厂商，选择启用的厂商后保存生效。</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>启用厂商</h3></div>
+                    <div class="card-body">
+                        <div class="config-section">
+                            <div class="config-item">
+                                <label class="config-label">选择要使用的厂商</label>
+                                <select class="config-input" id="activeProvider" onchange="onProviderChange()">
+                                    <option value="openai">OpenAI</option>
+                                    <option value="claude">Claude (Anthropic)</option>
+                                    <option value="qwen">通义千问 (阿里云)</option>
+                                    <option value="deepseek">DeepSeek</option>
+                                    <option value="moonshot">Moonshot (月之暗面)</option>
+                                    <option value="zhipu">智谱 AI</option>
+                                    <option value="custom">自定义厂商</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>厂商配置</h3></div>
+                    <div class="card-body">
+                        <div class="config-section">
+                            <div class="config-item"><label class="config-label">API Key</label><input type="password" class="config-input" id="configApiKey" placeholder="sk-xxx"></div>
+                            <div class="config-item"><label class="config-label">API 地址</label><input type="text" class="config-input" id="configApiBase" placeholder="https://api.openai.com/v1"></div>
+                            <div class="config-item"><label class="config-label">模型</label><input type="text" class="config-input" id="configModel" list="modelList" placeholder="输入或选择模型"><datalist id="modelList"></datalist></div>
+                            <div class="config-item"><label class="config-label">温度 (0-2)</label><input type="number" class="config-input" id="configTemp" placeholder="0.7" step="0.1" min="0" max="2"></div>
+                            <div class="config-item"><label class="config-label">最大 Token</label><input type="number" class="config-input" id="configMaxTokens" placeholder="2000"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 16px;">
+                    <button class="btn btn-primary" onclick="saveConfig()">保存配置</button>
+                </div>
+            </div>
+            
+            <!-- 平台接入页面 -->
+            <div class="page" id="page-platforms">
+                <div class="page-header">
+                    <h2 class="page-title">平台接入</h2>
+                    <p class="page-desc">将智能体接入各大平台，开启后保存配置即可生效。</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>平台列表</h3></div>
+                    <div class="card-body">
+                        <div class="platform-list" id="platformList"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 统计页面 -->
+            <div class="page" id="page-usage">
+                <div class="page-header">
+                    <h2 class="page-title">📊 使用统计</h2>
+                    <p class="page-desc">查看 Token 使用情况。</p>
+                </div>
+                <div class="stats-grid" id="statsGrid"></div>
+                <div class="card">
+                    <div class="card-header"><h3>每日使用量 (最近7天)</h3></div>
+                    <div class="card-body">
+                        <div class="daily-chart" id="dailyUsage"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 环境页面 -->
+            <div class="page" id="page-env">
+                <div class="page-header">
+                    <h2 class="page-title">环境信息</h2>
+                    <p class="page-desc">智能体自动检测运行环境。</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>系统环境</h3></div>
+                    <div class="card-body">
+                        <div class="env-grid" id="envInfo"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page" id="page-system">
+                <div class="page-header">
+                    <h2 class="page-title">系统管理</h2>
+                    <p class="page-desc">管理系统服务状态。</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>服务控制</h3></div>
+                    <div class="card-body">
+                        <div class="system-controls">
+                            <div class="control-item">
+                                <div class="control-info">
+                                    <h4>重启服务</h4>
+                                    <p>重启 WindAgent 服务，所有连接将暂时断开。</p>
+                                </div>
+                                <button class="btn btn-secondary" onclick="restartService()">重启服务</button>
+                            </div>
+                            <div class="control-item">
+                                <div class="control-info">
+                                    <h4>关闭服务</h4>
+                                    <p>完全关闭 WindAgent 服务，需要手动启动。</p>
+                                </div>
+                                <button class="btn btn-danger" onclick="stopService()">关闭服务</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>系统信息</h3></div>
+                    <div class="card-body">
+                        <div class="env-grid" id="systemInfo"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 安装插件模态框 -->
+    <div class="modal" id="installModal">
+        <div class="modal-content">
+            <div class="modal-header">📦 安装插件</div>
+            <div class="modal-body">
+                <div class="install-tabs">
+                    <div class="install-tab active" onclick="switchInstallTab('url')" id="tabUrl">从URL安装</div>
+                    <div class="install-tab" onclick="switchInstallTab('local')" id="tabLocal">本地创建</div>
+                </div>
+                <div id="installUrl">
+                    <div class="config-item">
+                        <label class="config-label">平台</label>
+                        <select class="config-select" id="installPlatform">
+                            <option value="github">GitHub</option>
+                            <option value="gitee">Gitee</option>
+                            <option value="gitlab">GitLab</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+                    <div class="config-item">
+                        <label class="config-label">仓库地址</label>
+                        <input type="text" class="config-input" id="installUrlInput" placeholder="https://github.com/user/plugin">
+                    </div>
+                </div>
+                <div id="installLocal" style="display: none;">
+                    <div class="config-item">
+                        <label class="config-label">插件名称</label>
+                        <input type="text" class="config-input" id="newPluginName" placeholder="my_plugin（英文）">
+                    </div>
+                    <div class="config-item">
+                        <label class="config-label">插件简介</label>
+                        <input type="text" class="config-input" id="newPluginDesc" placeholder="插件功能描述">
+                    </div>
+                    <div class="config-item">
+                        <label class="config-label">作者</label>
+                        <input type="text" class="config-input" id="newPluginAuthor" placeholder="作者名称">
+                    </div>
+                    <div class="config-item">
+                        <label class="config-label">插件类型</label>
+                        <select class="config-select" id="newPluginType">
+                            <option value="single">单文件插件 - 简单功能</option>
+                            <option value="package">插件包 - 可对接其他框架</option>
+                        </select>
+                        <p style="color: var(--text-muted); font-size: 0.85em; margin-top: 8px;">
+                            💡 插件包支持适配器，可对接其他消息框架进行转发
+                        </p>
+                    </div>
+                </div>
+                <div id="installProgress" style="display: none; text-align: center; padding: 20px;">
+                    <div class="install-spinner"></div>
+                    <p id="installStatus" style="margin-top: 15px; color: var(--text-muted);">正在安装...</p>
+                </div>
+                <div id="installResult" style="display: none; text-align: center; padding: 20px;">
+                    <div id="installResultIcon" style="font-size: 48px;"></div>
+                    <p id="installResultText" style="margin-top: 15px;"></p>
+                </div>
+            </div>
+            <div class="modal-actions" id="installActions">
+                <button class="btn btn-secondary" onclick="hideInstallModal()">取消</button>
+                <button class="btn btn-primary" onclick="installPlugin()">安装</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 插件编辑器模态框 -->
+    <div class="modal" id="pluginEditorModal">
+        <div class="modal-content" style="max-width: 900px;">
+            <div class="modal-header">编辑插件: <span id="editorPluginName"></span></div>
+            <div class="modal-body">
+                <div class="plugin-editor-layout">
+                    <div class="plugin-editor-sidebar">
+                        <div class="sidebar-section">
+                            <div class="sidebar-title">文件列表</div>
+                            <div class="plugin-file-list" id="pluginFileList"></div>
+                        </div>
+                        <div class="sidebar-section">
+                            <div class="sidebar-title">可用工具</div>
+                            <div class="plugin-tools-editor" id="pluginToolsList"></div>
+                        </div>
+                    </div>
+                    <div class="plugin-editor-main">
+                        <textarea id="pluginCodeEditor" class="code-editor"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="hidePluginEditor()">取消</button>
+                <button class="btn btn-primary" onclick="savePluginFile()">保存</button>
+                <button class="btn btn-secondary" onclick="hotReloadPlugin()">热更新</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 新建会话弹窗 -->
+    <div class="modal" id="newConvModal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">📝 新建会话</div>
+            <div class="modal-body">
+                <div class="config-item">
+                    <label class="config-label">会话名称</label>
+                    <input type="text" class="config-input" id="newConvName" placeholder="输入会话名称">
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="hideNewConvModal()">取消</button>
+                <button class="btn btn-primary" onclick="createNewConversation()">创建</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 提示弹窗 -->
+    <div class="modal" id="toastModal">
+        <div class="modal-content" style="max-width: 350px;">
+            <div class="modal-body" style="text-align: center; padding: 30px;">
+                <div id="toastIcon" style="font-size: 48px; margin-bottom: 15px;"></div>
+                <p id="toastMessage" style="font-size: 1.1em;"></p>
+            </div>
+            <div class="modal-actions" style="justify-content: center;">
+                <button class="btn btn-primary" onclick="hideToastModal()">确定</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 确认弹窗 -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3 id="confirmTitle">确认操作</h3>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage"></p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="hideConfirmModal(false)">取消</button>
+                <button class="btn btn-primary" onclick="hideConfirmModal(true)">确定</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/app.js?v=59"></script>
+</body>
+</html>

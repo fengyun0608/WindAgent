@@ -1,0 +1,59 @@
+# 可用工具列表
+
+## 文件工具 (file)
+
+### read_file
+读取文件内容
+- 参数: path (文件路径)
+- 返回: 文件内容
+
+### write_file
+写入文件
+- 参数: path (文件路径), content (内容)
+- 返回: 是否成功
+
+### list_dir
+列出目录内容
+- 参数: path (目录路径)
+- 返回: 文件列表
+
+### delete
+删除文件或目录
+- 参数: path (路径)
+- 返回: 是否成功
+
+## Shell工具 (shell)
+
+### execute
+执行Shell命令
+- 参数: command (命令)
+- 返回: 执行结果
+
+### get_env
+获取环境变量
+- 参数: name (变量名)
+- 返回: 变量值
+
+## 网络工具 (network)
+
+### http_get
+发送GET请求
+- 参数: url (地址)
+- 返回: 响应内容
+
+### http_post
+发送POST请求
+- 参数: url (地址), data (数据)
+- 返回: 响应内容
+
+## 数据工具 (data)
+
+### calculate
+执行计算
+- 参数: expression (表达式)
+- 返回: 计算结果
+
+### format_json
+格式化JSON
+- 参数: data (数据)
+- 返回: 格式化后的JSON
