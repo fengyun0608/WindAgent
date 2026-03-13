@@ -3,10 +3,10 @@
 人设管理插件 - 允许AI自主修改人设
 """
 
-from storm.plugin import Plugin, command
+from storm.plugin import PluginBase, command
 
 
-class PersonaPlugin(Plugin):
+class PersonaPlugin(PluginBase):
     """人设管理插件"""
     
     name = "persona"
