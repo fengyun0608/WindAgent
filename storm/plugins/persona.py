@@ -15,13 +15,9 @@ class PersonaPlugin(PluginBase):
     
     def on_load(self):
         """加载插件"""
-        self.log("info", "人设管理插件已加载")
+        self.logger.info("人设管理插件已加载")
     
-    @command(
-        name="whoami",
-        description="查看当前人设",
-        usage="/whoami"
-    )
+    @command("whoami", help="查看当前人设")
     def whoami(self, args: str = "") -> str:
         """查看当前人设"""
         from cloud.config import get_config_manager
@@ -38,11 +34,7 @@ class PersonaPlugin(PluginBase):
 {'📌 自定义提示: ' + persona.custom_prompt if persona.custom_prompt else ''}
 ━━━━━━━━━━━━━━━━━━━━"""
     
-    @command(
-        name="setname",
-        description="修改我的名字",
-        usage="/setname <名字>"
-    )
+    @command("setname", help="修改我的名字: /setname <名字>")
     def set_name(self, args: str = "") -> str:
         """修改名字"""
         if not args:
@@ -55,11 +47,7 @@ class PersonaPlugin(PluginBase):
         
         return f"✅ 名字已更新为: {args.strip()}"
     
-    @command(
-        name="setdesc",
-        description="修改我的描述",
-        usage="/setdesc <描述>"
-    )
+    @command("setdesc", help="修改我的描述: /setdesc <描述>")
     def set_description(self, args: str = "") -> str:
         """修改描述"""
         if not args:
@@ -72,11 +60,7 @@ class PersonaPlugin(PluginBase):
         
         return f"✅ 描述已更新为: {args.strip()}"
     
-    @command(
-        name="setpersonality",
-        description="修改我的性格",
-        usage="/setpersonality <性格>"
-    )
+    @command("setpersonality", help="修改我的性格: /setpersonality <性格>")
     def set_personality(self, args: str = "") -> str:
         """修改性格"""
         if not args:
@@ -89,11 +73,7 @@ class PersonaPlugin(PluginBase):
         
         return f"✅ 性格已更新为: {args.strip()}"
     
-    @command(
-        name="setstyle",
-        description="修改我的说话风格",
-        usage="/setstyle <风格>"
-    )
+    @command("setstyle", help="修改我的说话风格: /setstyle <风格>")
     def set_speaking_style(self, args: str = "") -> str:
         """修改说话风格"""
         if not args:
@@ -106,11 +86,7 @@ class PersonaPlugin(PluginBase):
         
         return f"✅ 说话风格已更新为: {args.strip()}"
     
-    @command(
-        name="addskill",
-        description="添加擅长领域",
-        usage="/addskill <领域>"
-    )
+    @command("addskill", help="添加擅长领域: /addskill <领域>")
     def add_expertise(self, args: str = "") -> str:
         """添加擅长领域"""
         if not args:
@@ -126,11 +102,7 @@ class PersonaPlugin(PluginBase):
         else:
             return f"⚠️ 已经有这个领域了: {args.strip()}"
     
-    @command(
-        name="removeskill",
-        description="移除擅长领域",
-        usage="/removeskill <领域>"
-    )
+    @command("removeskill", help="移除擅长领域: /removeskill <领域>")
     def remove_expertise(self, args: str = "") -> str:
         """移除擅长领域"""
         if not args:
@@ -146,11 +118,7 @@ class PersonaPlugin(PluginBase):
         else:
             return f"⚠️ 没有这个领域: {args.strip()}"
     
-    @command(
-        name="setprompt",
-        description="设置自定义提示词",
-        usage="/setprompt <提示词>"
-    )
+    @command("setprompt", help="设置自定义提示词: /setprompt <提示词>")
     def set_custom_prompt(self, args: str = "") -> str:
         """设置自定义提示词"""
         from cloud.config import get_config_manager
