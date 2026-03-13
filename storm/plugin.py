@@ -204,6 +204,7 @@ class PluginManager:
         
         plugin_dirs = [
             self.plugin_dir,
+            os.path.join(os.path.dirname(self.plugin_dir), "plugins"),
             os.path.join(os.path.dirname(self.plugin_dir), "..", "plugins")
         ]
         
@@ -230,6 +231,7 @@ class PluginManager:
         
         plugin_dirs = [
             self.plugin_dir,
+            os.path.join(os.path.dirname(self.plugin_dir), "plugins"),
             os.path.join(os.path.dirname(self.plugin_dir), "..", "plugins")
         ]
         
@@ -443,6 +445,8 @@ class PluginManager:
                 possible_paths = [
                     os.path.join(self.plugin_dir, name),
                     os.path.join(self.plugin_dir, f"{name}.py"),
+                    os.path.join(os.path.dirname(self.plugin_dir), "plugins", name),
+                    os.path.join(os.path.dirname(self.plugin_dir), "plugins", f"{name}.py"),
                     os.path.join(os.path.dirname(self.plugin_dir), "..", "plugins", name),
                     os.path.join(os.path.dirname(self.plugin_dir), "..", "plugins", f"{name}.py"),
                 ]
@@ -466,6 +470,8 @@ class PluginManager:
                 possible_paths = [
                     os.path.join(self.plugin_dir, name),
                     os.path.join(self.plugin_dir, f"{name}.py"),
+                    os.path.join(os.path.dirname(self.plugin_dir), "plugins", name),
+                    os.path.join(os.path.dirname(self.plugin_dir), "plugins", f"{name}.py"),
                     os.path.join(os.path.dirname(self.plugin_dir), "..", "plugins", name),
                     os.path.join(os.path.dirname(self.plugin_dir), "..", "plugins", f"{name}.py"),
                 ]
